@@ -1,0 +1,58 @@
+:root {
+  --edf-blue: #001a70;
+  --edf-orange: #ff6a13;
+  --edf-light: #e6eeff;
+  --edf-bg: #f5f7fb;
+
+  --edf-success: #00a878;
+  --edf-error: #d7263d;
+}
+
+/* Global page */
+body {
+  background: var(--edf-bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* Cards */
+.edf-card {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Inputs */
+.edf-input {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+}
+
+.edf-input:focus {
+  outline: 2px solid var(--edf-blue);
+}
+
+/* Status badges */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-active {
+  background: #e6fff4;
+  color: var(--edf-success);
+}
+
+.badge-expired {
+  background: #ffecec;
+  color: var(--edf-error);
+}
+
+.badge-pending {
+  background: #fff3e6;
+  color: var(--edf-orange);
+}

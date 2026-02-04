@@ -1,0 +1,37 @@
+{
+  "info": {
+    "name": "Energy Dashboard Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get contracts (all)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/contracts",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "contracts"]
+        }
+      }
+    },
+    {
+      "name": "Search contracts",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/contracts?q=London",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "contracts"],
+          "query": [{ "key": "q", "value": "London" }]
+        }
+      }
+    }
+  ]
+}
