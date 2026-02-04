@@ -1,36 +1,210 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Energy Dashboard Demo – Next.js + TypeScript
 
-## Getting Started
+A modern energy contracts dashboard demonstrating filtering, search, API development and data visualisation using **Next.js, React, TypeScript and Recharts**.
 
-First, run the development server:
+---
+
+## Overview
+
+This application simulates an energy supplier portfolio tool that allows users to:
+
+* View a table of energy contracts
+* Filter by commodity, status and kWh range
+* Search across customers, sites and contract IDs
+* Visualise annual consumption by commodity
+* Query a typed API endpoint
+* Test the API via Postman
+
+---
+
+## Tech Stack & Tools
+
+### Core Development
+
+* **Next.js (App Router)** – framework & API routes
+* **React 18** – UI components
+* **TypeScript** – strong typing
+* **Recharts** – data visualisation
+
+### Tooling
+
+* **Node.js / npm** – runtime & packages
+* **Visual Studio Code** – development environment
+* **Git & GitHub** – version control
+* **Postman** – API testing
+* **Vercel** – deployment platform
+
+### Concepts Demonstrated
+
+* API design & JSON handling
+* React state management
+* Dashboard UX principles
+* Data filtering & aggregation
+* Component composition
+* Spec-driven / AI-assisted development workflow
+
+---
+
+## Project Structure
+
+```
+app/
+  page.tsx                 – Main dashboard UI
+  api/contracts/route.ts   – API endpoint
+
+components/
+  ContractsTable.tsx       – Data table
+  ContractsChart.tsx       – Recharts visualisation
+
+lib/
+  contracts.types.ts       – TypeScript models
+  contracts.mock.ts        – Mock dataset
+  contracts.query.ts       – Filtering logic
+```
+
+---
+
+## Running Locally
+
+### 1) Prerequisites
+
+* Node.js 18+
+* npm
+* Git
+
+### 2) Install
+
+```bash
+git clone <your-repo-url>
+cd energy-dashboard-demo
+npm install
+```
+
+### 3) Start dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+👉 [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+API available at:
 
-## Learn More
+👉 [http://localhost:3000/api/contracts](http://localhost:3000/api/contracts)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Get all contracts
 
-## Deploy on Vercel
+```
+GET /api/contracts
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Search
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+GET /api/contracts?q=london
+```
+
+### Filter
+
+```
+GET /api/contracts?commodity=electricity&status=active
+```
+
+### Range
+
+```
+GET /api/contracts?minKwh=100000&maxKwh=500000
+```
+
+---
+
+## Testing with Postman
+
+1. Import the file:
+
+```
+EnergyDashboard.postman_collection.json
+```
+
+2. Set environment variable:
+
+```
+baseUrl = http://localhost:3000
+```
+
+3. Run requests:
+
+* Get contracts
+* Search
+* Filter by commodity
+* Filter by status + range
+
+---
+
+## Deployment
+
+### Option A – Vercel (Recommended)
+
+1. Push code to GitHub
+
+```bash
+git add .
+git commit -m "Initial commit"
+git push
+```
+
+2. On Vercel:
+
+* New Project
+* Import GitHub repo
+* Framework = Next.js
+* Deploy
+
+Your app will be live at:
+
+```
+https://<project>.vercel.app
+```
+
+### Option B – Manual Build
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+## Skills Demonstrated
+
+* React & Next.js development
+* TypeScript domain modelling
+* API creation & JSON handling
+* Dashboard UX design
+* Data visualisation
+* Git workflow
+* API testing with Postman
+* Cloud deployment
+
+---
+
+## Possible Extensions
+
+* Prisma + database storage
+* Auth layer
+* CSV export
+* Create/Edit contracts
+* Real energy cost calculations
+* Multi-tenant accounts
+
+---
+
+## License
+
+MIT
